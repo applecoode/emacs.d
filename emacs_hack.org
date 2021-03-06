@@ -1,0 +1,17 @@
+#+title:emacs hack record
+** 操作方面
+*** 任何代码后面执行c-x c-e
+*** c-g取消一切前面的按键
+  
+
+** 自带插件
+*** eww浏览网站
+ - eww-back-url 上一个网站
+
+** org-mode
+*** c-c c-x b在单独buff中编辑条目
+*** 关于easy templates
+#+begin_src elisp
+(require 'org)
+(org-insert-structure-templates "s")
+#+end_src
