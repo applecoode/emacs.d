@@ -58,8 +58,7 @@
 (global-linum-mode t)
 (toggle-truncate-lines 1) ;truncate line
 
-(add-to-list 'my/packages 'monokai-theme)
-(load-theme 'monokai 1)
+(load-theme 'monokai t)
 
 ;;init file
 (defun open-my-init-file()
@@ -71,14 +70,20 @@
 (defun open-hack-file()
   (interactive)
   (find-file "~/.emacs.d/emacs_hack.org"))
-(global-set-key (kbd "<f1>") 'open-hack-file)
+(global-set-key (kbd "<f4>") 'open-hack-file)
 
 ;;recentf-mode
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;;company
 (global-company-mode t)
+(custom-set-variables
+ '(company-minimum-prefix-length 2)
+ '(package-selected-packages '(vue-mode company evil))
+ '(tool-bar-mode nil))
 
 ;;search some help key
 (global-set-key "\C-h\ \C-f" 'find-function)
@@ -88,7 +93,8 @@
 ;;set cursor type
 (setq-default cursor-type 'bar)
 
-;;close backup-files
+;;close backup-files and auto save 
+(setq auto-save-default nil)
 (setq make-backup-file nil)
 
 ;;select block edit
@@ -103,18 +109,8 @@
 ;;highlight current line
 (global-hl-line-mode 1)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(vue-mode company evil))
- '(tool-bar-mode nil))
+
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(default ((t (:family "微软雅黑" :foundry "outline" :slant normal :weight normal :height 143 :width normal)))))
 
 
@@ -123,3 +119,25 @@
       (append
        '(("\\.js\\'" . js2-mode))
        auto-mode-alist))
+(require 'nodejs-repl)
+
+;;test
+(setq recentf-auto-cleanup 'never)
+
+;;paren hightlight
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+;;swipper
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-h f") 'counsel-describe-function)
+(global-set-key (kbd "C-h v") 'counsel-describe-variable)
+
+;;smartparents config
+(require 'smartparens-config)
+(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+;(smartparens-global-mode t)
