@@ -9,6 +9,7 @@
 (setq org-modules-loaded t)
 #+end_src
 
+
 ** 操作方面
 *** 任何代码后面执行c-x c-e
 *** c-g取消一切前面的按键
@@ -18,6 +19,7 @@
 *** eww浏览网站
  - eww-back-url 上一个网站
    
+
 ** 安装插件
 *** swiper
     #+begin_src elisp
@@ -31,6 +33,7 @@
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
     #+end_src
 
+
 ** org-mode
 *** c-c c-x b在单独buff中编辑条目
 *** 关于easy templates (c-c c-,)
@@ -40,6 +43,29 @@
 #+end_src
 *** todo mode
 **** TODO [#A] c-c c-,优先级
+
+*** python 问题
+    #+begin_src elisp
+    (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((python . t)))
+    #+end_src
+
+    #+begin_src python
+    import re
+    r = re.split('\d','a2b3d4f5v')
+    return r
+    #+end_src
+
+    #+RESULTS:
+    | a | b | d | f | v |
+
+    #+begin_src js
+    var a = "abc"
+    console.log(a);
+    #+end_src
+
+    #+RESULTS:
 
 
 ** 视觉效果
