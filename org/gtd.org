@@ -1,9 +1,6 @@
 ** TODO 买电脑
-   DEADLINE: <2021-03-07 周日 21:00> SCHEDULED: <2021-03-07 周日 08:00>
-** TODO 买学习椅                                                     :ATTACH:
-   DEADLINE: <2021-03-07 周日 22:00> SCHEDULED: <2021-03-07 周日 09:00>
-   :PROPERTIES:
-   :ID:       970e2ee8-d984-44a8-b722-311ff16e82c6
-   :END:
+   DEADLINE: <2021-03-07 周日 21:00> SCHEDULED: <2021-03-15 周一 08:00>
+** TODO 买学习椅
+   DEADLINE: <2021-03-07 周日 22:00> SCHEDULED: <2021-03-15 周一 09:00>
 ** TODO emacs continus hacking
-   DEADLINE: <2021-03-08 周一 21:00> SCHEDULED: <2021-03-08 周一 08:00>
+   DEADLINE: <2021-03-08 周一 21:00> SCHEDULED: <2021-03-24 周三 08:00>

@@ -1,10 +1,13 @@
 #+title:emacs hack record
-** 文件操作
+** 优化
 *** 禁止备份文件
 #+begin_src elisp
 (setq make-backup-file nil)
 #+end_src
-
+*** 预加载org-mode
+#+begin_src elisp
+(setq org-modules-loaded t)
+#+end_src
 
 ** 操作方面
 *** 任何代码后面执行c-x c-e

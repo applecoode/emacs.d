@@ -47,8 +47,9 @@
 
 ;;org-mode config
 (require 'org)
+(setq org-modules-loaded t)
 (setq org-src-fontify-natively t)
-(setq org-agenda-files '("~/org"))
+(setq org-agenda-files '("~/.emacs.d/org"))
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;;make look comfortable
@@ -86,7 +87,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-minimum-prefix-length 2)
- '(org-agenda-files nil)
  '(package-selected-packages '(vue-mode company evil))
  '(tool-bar-mode nil))
 
