@@ -67,6 +67,11 @@
 
     #+RESULTS:
 
+*** 第一次加载org慢的问题
+    启动时预加载org模块
+    #+begin_src elisp
+(setq org-modules-loaded t)
+    #+end_src
 
 ** 视觉效果
 *** 全屏

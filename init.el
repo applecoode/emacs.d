@@ -73,6 +73,12 @@
   (find-file "~/.emacs.d/emacs_hack.org"))
 (global-set-key (kbd "<f4>") 'open-hack-file)
 
+;;recorde work
+(defun open-work-file()
+  (interactive)
+  (find-file "~/.emacs.d/org/work.org"))
+(global-set-key (kbd "<f5>") 'open-work-file)
+
 ;;recentf-mode
 (require 'recentf)
 (recentf-mode 1)
@@ -107,9 +113,6 @@
 
 ;;theme
 (load-theme 'deeper-blue)
-
-;;full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;;highlight current line
 (global-hl-line-mode 1)
@@ -150,3 +153,7 @@
 (require 'smartparens-config)
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 ;(smartparens-global-mode t)
+
+;;full screen
+;(setq initial-frame-alist (quote ((fullscreen . maximized))))
+(toggle-frame-fullscreen)
