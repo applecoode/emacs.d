@@ -9,6 +9,56 @@
 (setq org-modules-loaded t)
 #+end_src
 
+*** windows下自己编译
+**** 首先安装msys2
+**** 安装编译依赖
+- 在 /var/cache/pacman/pkg 目录下能找到刚才下载的软件包及其依赖包
+- 将软件包拷贝至不能联网的辑器上
+- 执行 pacman -U mingw-w64-x86_64-jq-1.6-2-any.pkg.tar.xz 安装
+  依赖如下
+    #+begin_src bash
+pacman -S base-devel mingw-w64-x86_64-toolchain \
+mingw-w64-x86_64-xpm-nox mingw-w64-x86_64-libtiff \
+mingw-w64-x86_64-giflib mingw-w64-x86_64-libpng \
+mingw-w64-x86_64-libjpeg-turbo mingw-w64-x86_64-librsvg \
+mingw-w64-x86_64-libxml2 mingw-w64-x86_64-gnutls
+    #+end_src
+**** 下载源码编译
+在mingw64exe的shell下运行
+修改下git
+git config core.autocrlf false
+git clone git://git.sv.gnu.org/emacs.git
+
+设置然后编译
+#+begin_src bash
+./autogen.sh
+PKG_CONFIG_PATH=/mingw64/lib/pkgconfig ./configure --host=x86_64-w64-mingw32 \
+--target=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --with-wide-int \
+--with-jpeg --with-xpm --with-png --with-tiff --with-rsvg --with-xml2 \
+--with-gnutls --without-imagemagick
+make
+make install prefix=/c/emacs
+#+end_src
+
+拷贝编译时的依赖
+#+begin_src 
+cp /mingw64/bin/{libwinpthread-*.dll,libXpm-noX*.dll,libdbus-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libgomp-*.dll,libgcc_s_seh-*.dll,libglib-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libintl-*.dll,libiconv-*.dll,libgobject-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libffi-*.dll,libgdk_pixbuf-*.dll,libgio-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libgmodule-*.dll,zlib*.dll,librsvg-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libcairo-*.dll,libcroco-*.dll,libpango-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libpangocairo-*.dll,libxml2-*.dll,libfontconfig-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libfreetype-*.dll,libpixman-*.dll,libpng*.dll} /c/emacs/bin
+cp /mingw64/bin/{libpangoft*.dll,libpangowin32-*.dll,liblzma-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libexpat-*.dll,libharfbuzz-*.dll,libgnutls-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libgnutlsxx-*.dll,libtiff-*.dll,libtiffxx-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libjpeg-*.dll,libgif-*.dll,libbz2-*.dll,libjbig-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libgmp-*.dll,libhogweed-*.dll,libnettle-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
+cp /mingw64/bin/{libstdc++-*.dll,libgraphite*.dll,libbrotlidec.dll} /c/emacs/bin
+cp /mingw64/bin/{libpcre-*.dll,libbrotlicommon.dll,libidn2-*.dll,libunistring-*.dll} /c/emacs/bin
+#+end_src
 
 ** 操作方面
 *** 任何代码后面执行c-x c-e
