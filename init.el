@@ -1,46 +1,4 @@
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
-
-;;pkg
-(require 'cl)
-
-;; Add Packages
-(defvar my/packages '(
-		      ;; --- Auto-completion ---
-		      company
-		      ;; --- Better Editor ---
-		      hungry-delete
-		      swiper
-		      counsel
-		      smartparens
-		      ;; --- Major Mode ---
-		      js2-mode
-		      ;;vue-mode
-		      ;; --- Minor Mode ---
-		      nodejs-repl
-		      exec-path-from-shell
-		      ;; --- Themes ---
-		      monokai-theme
-		      ;; solarized-theme
-		      ) "Default packages")
-
- (setq package-selected-packages my/packages)
-
- (defun my/packages-installed-p ()
-     (loop for pkg in my/packages
-	   when (not (package-installed-p pkg)) do (return nil)
-	   finally (return t)))
-
- (unless (my/packages-installed-p)
-     (message "%s" "Refreshing package database...")
-     (package-refresh-contents)
-     (dolist (pkg my/packages)
-       (when (not (package-installed-p pkg))
-	 (package-install pkg))))
-
+(add-to-list 'load-path "~/.emacs.d/lisp")
 ;;lovely vim
 (require 'evil)
 (evil-mode 1)
@@ -58,8 +16,8 @@
 (setq inhibit-splash-screen t);cancel welcome information
 (global-linum-mode t)
 (toggle-truncate-lines 1) ;truncate line
+(menu-bar-mode -1)
 
-(load-theme 'monokai t)
 
 ;;init file
 (defun open-my-init-file()
@@ -76,7 +34,7 @@
 ;;recorde work
 (defun open-work-file()
   (interactive)
-  (find-file "~/.emacs.d/org/work.org"))
+  (find-file "~/.emacs.d/org/202103work.org"))
 (global-set-key (kbd "<f5>") 'open-work-file)
 
 ;;recentf-mode
@@ -87,14 +45,6 @@
 
 ;;company
 (global-company-mode t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-minimum-prefix-length 2)
- '(package-selected-packages '(vue-mode company evil))
- '(tool-bar-mode nil))
 
 ;;search some help key
 (global-set-key "\C-h\ \C-f" 'find-function)
@@ -126,12 +76,6 @@
  '(default ((t (:family "微软雅黑" :foundry "outline" :slant normal :weight normal :height 143 :width normal)))))
 
 
-;js-mode config
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
-(require 'nodejs-repl)
 
 ;;test
 (setq recentf-auto-cleanup 'never)
@@ -140,8 +84,6 @@
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;;swipper
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -149,11 +91,13 @@
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
-;;smartparents config
-(require 'smartparens-config)
-(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-;(smartparens-global-mode t)
 
 ;;full screen
 ;(setq initial-frame-alist (quote ((fullscreen . maximized))))
 (toggle-frame-fullscreen)
+
+
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("8zb" "zhangbin")
+					    ))
