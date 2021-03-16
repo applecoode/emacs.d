@@ -62,7 +62,6 @@
 (load-theme 'monokai t)
 
 ;;open new popwin ,make cursor comfortable
-(require 'popwin)
 (popwin-mode t)
 
 (provide 'init-packages)
