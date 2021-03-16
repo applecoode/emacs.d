@@ -96,8 +96,9 @@
 ;(setq initial-frame-alist (quote ((fullscreen . maximized))))
 (toggle-frame-fullscreen)
 
-
 (abbrev-mode t)
 (define-abbrev-table 'global-abbrev-table '(
 					    ("8zb" "zhangbin")
 					    ))
+
+(setq ring-bell-function 'ignore)
