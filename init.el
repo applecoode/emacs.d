@@ -19,7 +19,6 @@
 (defun indent-buffer()
   (interactive)
   (indent-region (point-min)(point-max)))
-
 (defun indent-region-or-buffer()
   (interactive)
   (save-excursion

@@ -18,14 +18,18 @@
 		      smartparens
 		      ;; --- Major Mode ---
 		      js2-mode
+		      web-mode
 		      ;;vue-mode
 		      ;; --- Minor Mode ---
+		      js2-refactor
 		      nodejs-repl
 		      exec-path-from-shell
 		      ;; --- Themes ---
 		      monokai-theme
 		      ;; solarized-theme
 		      popwin
+		      expand-region
+		      iedit
 		      ) "Default packages")
 
  (setq package-selected-packages my/packages)
