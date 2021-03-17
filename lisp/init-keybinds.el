@@ -43,4 +43,22 @@
 ;;counsel git
 (global-set-key (kbd "C-c p f") 'counsel-git)
 
+;hippie company  another company help comany
+(setq hippie-expand-try-function-list '(try-expand-debbrev
+					try-expand-debbrev-all-buffers
+					try-expand-debbrev-from-kill
+					try-complete-file-name-partially
+					try-complete-file-name
+					try-expand-all-abbrevs
+					try-expand-list
+					try-expand-line
+					try-complete-lisp-symbol-partially
+					try-complete-lisp-symbol))
+(global-set-key (kbd "C-c /") 'hippie-expand)
+
+;;let dired mode do not cast many buffer 
+(put 'dired-find-alternate-file 'disabled nil)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
 (provide 'init-keybinds)
