@@ -36,6 +36,8 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
+;;imenu
+(global-set-key (kbd "M-s i") 'counsel-imenu)
 
 ;;org
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -61,4 +63,34 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;;web indent
+(defun my-toggle-web-indent ()
+  (interactive)
+  ;; web development
+  (if (or (eq major-mode 'js-mode) (eq major-mode 'js2-mode))
+	  (progn
+	    (setq js-indent-level (if (= js-indent-level 2) 4 2))
+	    (setq js2-basic-offset (if (= js2-basic-offset 2) 4 2))))
+
+      (if (eq major-mode 'web-mode)
+	  (progn (setq web-mode-markup-indent-offset (if (= web-mode-markup-indent-offset 2) 4 2))
+		 (setq web-mode-css-indent-offset (if (= web-mode-css-indent-offset 2) 4 2))
+		 (setq web-mode-code-indent-offset (if (= web-mode-code-indent-offset 2) 4 2))))
+      (if (eq major-mode 'css-mode)
+	  (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
+      (setq indent-tabs-mode nil))
+
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
+
+;;js2-refactor bind
+(js2r-add-keybindings-with-prefix "C-c C-m")
+
+
+;;occur-mode under word select
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+(global-set-key (kbd "C-;") 'iedit-mode)
 (provide 'init-keybinds)
