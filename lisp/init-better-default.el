@@ -29,10 +29,11 @@
 (setq dired-dwin-target 1)
 
 ;;abb
-(abbrev-mode t)
+(setq-default abbrev-mode t)
 (define-abbrev-table 'global-abbrev-table '(
 					    ("8zb" "zhangbin")
 					    ))
+
 (defun occur-dwim ()
   "Call `occur' with a sane default."
   (interactive)

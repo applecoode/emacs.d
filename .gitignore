@@ -1,4 +1,5 @@
 /*
+!abbrev_defs
 !.gitignore
 !/lisp/
 /lisp/*

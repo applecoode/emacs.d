@@ -60,10 +60,19 @@ cp /mingw64/bin/{libstdc++-*.dll,libgraphite*.dll,libbrotlidec.dll} /c/emacs/bin
 cp /mingw64/bin/{libpcre-*.dll,libbrotlicommon.dll,libidn2-*.dll,libunistring-*.dll} /c/emacs/bin
 #+end_src
 
+*** dired双窗口拷贝
+#+begin_src elisp
+(setq dired-dwim-target 1)
+#+end_src
+*** 编译成elc
+#+begin_src elisp
+  (byte-recompile-file)
+  (byte-recompile-directory)
+#+end_src
 ** 操作方面
 *** 任何代码后面执行c-x c-e
 *** c-g取消一切前面的按键
-  
+*** c-x a g/l 新增一个缩写 缩写在文件~/.emacs./abbrev_defs里面
 
 ** 自带插件
 *** eww浏览网站
@@ -83,6 +92,10 @@ cp /mingw64/bin/{libpcre-*.dll,libbrotlicommon.dll,libidn2-*.dll,libunistring-*.
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
     #+end_src
 
+*** ag
+# Windows 下通过 msys2 安装（确保在 path 中）
+pacman -S mingw-w64-i686-ag # 32 位电脑
+pacman -S mingw-w64-x86_64-ag # 64 位电脑
 
 ** org-mode
 *** c-c c-x b在单独buff中编辑条目
@@ -122,6 +135,7 @@ cp /mingw64/bin/{libpcre-*.dll,libbrotlicommon.dll,libidn2-*.dll,libunistring-*.
     #+begin_src elisp
 (setq org-modules-loaded t)
     #+end_src
+
 
 ** 视觉效果
 *** 全屏

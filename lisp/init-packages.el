@@ -30,6 +30,10 @@
 		      popwin
 		      expand-region
 		      iedit
+		      org-pomodoro
+		      helm-ag
+		      flycheck
+		      auto-yasnippet
 		      ) "Default packages")
 
  (setq package-selected-packages my/packages)
@@ -103,5 +107,8 @@
 	      (lambda ()
 		(setq imenu-create-index-function 'js2-imenu-make-index)))
 
+(add-hook 'js2-mode-hook 'flycheck-mode)
+;;(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 (provide 'init-packages)
 
