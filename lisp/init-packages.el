@@ -34,6 +34,7 @@
 		      helm-ag
 		      flycheck
 		      auto-yasnippet
+		      command-log-mode
 		      ) "Default packages")
 
  (setq package-selected-packages my/packages)
@@ -49,6 +50,11 @@
      (dolist (pkg my/packages)
        (when (not (package-installed-p pkg))
 	 (package-install pkg))))
+
+;;lovely vim
+(setq evil-disable-insert-state-bindings t)
+(require 'evil)
+(evil-mode 1)
 
 (global-hungry-delete-mode)
 

@@ -1,7 +1,3 @@
-;;lovely vim
-(require 'evil)
-(evil-mode 1)
-
 ;;company
 (global-company-mode t)
 

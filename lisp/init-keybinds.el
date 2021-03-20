@@ -1,4 +1,3 @@
-
 ;;init file
 (defun open-my-init-file()
   (interactive)
@@ -86,6 +85,9 @@
 ;;js2-refactor bind
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
+;;evil c-w c-r
+(global-set-key (kbd "C-w") 'evil-delete-backward-word)
+(global-set-key (kbd "C-r") 'evil-paste-from-register)
 
 ;;occur-mode under word select
 (global-set-key (kbd "M-s o") 'occur-dwim)
