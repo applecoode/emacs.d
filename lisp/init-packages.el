@@ -108,7 +108,8 @@
 		(setq imenu-create-index-function 'js2-imenu-make-index)))
 
 (add-hook 'js2-mode-hook 'flycheck-mode)
-;;(yas-reload-all)
+(require 'yasnippet)
+(yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 (provide 'init-packages)
 
