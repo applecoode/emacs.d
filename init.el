@@ -31,3 +31,6 @@
 	(message "Indent buffer.")))))
 
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+(with-eval-after-load 'org
+36(define-key evil-normal-state-map (kbd "TAB") 'org-cycle))
