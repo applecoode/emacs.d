@@ -76,6 +76,7 @@
 (load-theme 'monokai t)
 
 ;;open new popwin ,make cursor comfortable
+(require 'popwin)
 (popwin-mode t)
 
 ;;web-mode
