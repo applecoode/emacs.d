@@ -75,9 +75,9 @@ cp /mingw64/bin/{libpcre-*.dll,libbrotlicommon.dll,libidn2-*.dll,libunistring-*.
 *** c-x a g/l 新增一个缩写 缩写在文件~/.emacs./abbrev_defs里面
     c-q防止缩写
 验证一下缩写:
+验证一下缩写: 1
 验证一下缩写: 2
-验证一下缩写: 3
-验证一下缩写:  4
+sx 3 sx 3
 ** 自带插件
 *** eww浏览网站
  - eww-back-url 上一个网站

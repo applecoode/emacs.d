@@ -1,7 +1,5 @@
-** TODO 买电脑
+** 买电脑
    DEADLINE: <2021-03-23 周二 08:00> SCHEDULED: <2021-03-08 周一 08:00>
-** TODO 买学习椅
-   DEADLINE: <2021-03-28 周日 22:00> SCHEDULED: <2021-03-15 周一 09:00>
-** DONE emacs continus hacking
-   DEADLINE: <2021-03-08 周一 21:00> SCHEDULED: <2021-03-24 周三 08:00>
+** 买学习椅
+** emacs continus hacking
    

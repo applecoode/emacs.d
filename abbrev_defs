@@ -10,3 +10,8 @@
     ("wd" "world" nil :count 1)
    ))
 
+(define-abbrev-table 'org-mode-abbrev-table
+  '(
+    ("sx" "验证一下缩写:" nil :count 5)
+   ))
+

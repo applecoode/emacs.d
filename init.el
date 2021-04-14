@@ -32,5 +32,7 @@
 
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
+;;fix tab map on org
 (with-eval-after-load 'org
-36(define-key evil-normal-state-map (kbd "TAB") 'org-cycle))
+  (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))
+
