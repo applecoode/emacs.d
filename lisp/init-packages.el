@@ -35,6 +35,10 @@
 		      flycheck
 		      auto-yasnippet
 		      command-log-mode
+		      evil-leader
+		      evil-surround
+		      evil-nerd-commenter
+		      which-key
 		      ) "Default packages")
 
  (setq package-selected-packages my/packages)

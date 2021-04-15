@@ -19,12 +19,13 @@
 (defun indent-buffer()
   (interactive)
   (indent-region (point-min)(point-max)))
+
 (defun indent-region-or-buffer()
   (interactive)
   (save-excursion
     (if (region-active-p)
 	(progn
-	  (indent-region (region-beginning) (region-end))
+	  (indent-region (region-beginning) (region-ending))
 	  (message "Indent selected region."))
       (progn
 	(indent-buffer)
@@ -33,4 +34,4 @@
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
 (with-eval-after-load 'org
-36(define-key evil-normal-state-map (kbd "TAB") 'org-cycle))
+  (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))
