@@ -13,7 +13,7 @@
 ;;recorde work
 (defun open-work-file()
   (interactive)
-  (find-file "~/.emacs.d/org/202103work.org"))
+  (find-file "~/.emacs.d/org/202104work.org"))
 (global-set-key (kbd "<f5>") 'open-work-file)
 
 ;;recentf-mode

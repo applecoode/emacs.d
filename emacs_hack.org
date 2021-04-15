@@ -2,7 +2,7 @@
 ** 优化
 *** 禁止备份文件
 #+begin_src elisp
-(setq make-backup-file nil)
+  (setq make-backup-file nil)
 #+end_src
 *** 预加载org-mode
 #+begin_src elisp
@@ -73,7 +73,11 @@ cp /mingw64/bin/{libpcre-*.dll,libbrotlicommon.dll,libidn2-*.dll,libunistring-*.
 *** 任何代码后面执行c-x c-e
 *** c-g取消一切前面的按键
 *** c-x a g/l 新增一个缩写 缩写在文件~/.emacs./abbrev_defs里面
-
+    c-q防止缩写
+验证一下缩写:
+验证一下缩写: 1
+验证一下缩写: 2
+sx 3 sx 3
 ** 自带插件
 *** eww浏览网站
  - eww-back-url 上一个网站
@@ -105,8 +109,7 @@ pacman -S mingw-w64-x86_64-ag # 64 位电脑
 (org-insert-structure-templates "s")
 #+end_src
 *** todo mode
-**** TODO [#A] c-c c-,优先级
-
+**** DONE [#A] c-c c-,优先级
 *** python 问题
     #+begin_src elisp
     (org-babel-do-load-languages

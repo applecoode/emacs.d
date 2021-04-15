@@ -22,7 +22,7 @@
 (require 'dired-x)
 
 ;;two windows copy
-(setq dired-dwin-target 1)
+(setq dired-dwim-target 1)
 
 ;;abb
 (setq-default abbrev-mode t)
@@ -43,5 +43,9 @@
 	regexp-history)
   (call-interactively 'occur))
 
+;;set truncate lines init
+(setq truncate-lines nil)
+;;set truncate lines init org
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 (provide 'init-better-default)
