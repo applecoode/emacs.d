@@ -1,0 +1,67 @@
+** rime安装
+*** windows
+*** ubuntu20.04
+    #+begin_src 
+    sudo apt install librime-dev
+    #+end_src
+    in emacs
+    #+begin_src elisp
+   (package-install rime)
+    (require 'rime)
+    (setq default-input-method "rime")
+    #+end_src
+
+** rime 设置
+*** emacs 里面的命令
+    #+begin_src elisp
+       ;;打开基础设置
+       ;;default_custom.yaml
+       (rime-open-configuration)
+       ;;输入法基础设置
+       ;;shurufa_name.custom.yaml
+       (rime-open-schema)
+       ;;选择输入法
+       (rime-select-schema)
+      ;;设置完成之后要部署
+      (rime-deploy)
+    #+end_src
+
+*** 基础设置
+    #+begin_quote
+    #default_custom.yaml
+patch:
+  schema_list:
+    - schema: double_pinyin_plus
+    - schema: luna_pinyin          # 朙月拼音
+  key_binder:
+    bindings:
+      - {accept: semicolon, send: 2, when: has_menu}
+      - {accept: apostrophe, send: 3, when: has_menu}
+      - {accept: "Control+p", send: Up, when: composing}
+      - {accept: "Control+n", send: Down, when: composing}
+	
+  #double_pinyin_plus.custom.yaml
+  patch:
+  # 扩充词库
+  translator/dictionary: luna_pinyin.extended
+
+  # 扩充符号库
+  punctuator/import_preset: symbols
+  recognizer/patterns/punct: "^/([A-Z|a-z]*|[0-9]|10)$"
+
+  # 自动造句 (阴阳鱼☯️️ 图标)
+  zrm2000/enable_sentence: true
+
+  # 笔画反查
+  recognizer/patterns/reverse_lookup: "`b[a-z]*'?$"
+  reverse_lookup:
+    dictionary: stroke
+    enable_completion: true
+    prefix: "`b"
+    suffix: "'"
+    tips: 〔笔划反查〕
+    preedit_format:
+      - xlit/hspnz/一丨丿丶乙/
+    comment_format:
+      - xform/([nl])v/$1ü/
+    #+end_quote
