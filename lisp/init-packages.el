@@ -10,6 +10,8 @@
 ;; Add Packages
 (defvar my/packages '(
 		      ;; --- Auto-completion ---
+		      evil
+		      rime
 		      company
 		      ;; --- Better Editor ---
 		      hungry-delete
@@ -59,6 +61,11 @@
 (setq evil-disable-insert-state-bindings t)
 (require 'evil)
 (evil-mode 1)
+
+;;rime
+(require 'rime)
+(setq default-input-method "rime")
+
 
 (global-hungry-delete-mode)
 
