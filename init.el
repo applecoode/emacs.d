@@ -25,7 +25,7 @@
   (save-excursion
     (if (region-active-p)
 	(progn
-	  (indent-region (region-beginning) (region-ending))
+	  (indent-region (region-beginning) (region-end))
 	  (message "Indent selected region."))
       (progn
 	(indent-buffer)
@@ -36,3 +36,8 @@
 ;;fix tab map on org
 (with-eval-after-load 'org
   (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))
+
+;;toggle ctrl:caps
+(shell-command "setxkbmap -option ctrl:nocaps")
+(toggle-input-method)
+(toggle-input-method)

@@ -1,15 +1,22 @@
+*** 买学习椅
 ** rime安装
 *** windows
 *** ubuntu20.04
     #+begin_src 
     sudo apt install librime-dev
     #+end_src
+    
+*** emacs-rime
     in emacs
     #+begin_src elisp
    (package-install rime)
+
+   ;;offline require popup and posframe packages and do this
+    ;;cd elpa/rime-s23234234
+   ;;make lib
     (require 'rime)
     (setq default-input-method "rime")
-    #+end_src
+   #+end_src
 
 ** rime 设置
 *** emacs 里面的命令
@@ -25,44 +32,52 @@
       ;;设置完成之后要部署
       (rime-deploy)
     #+end_src
+    #+begin_src elisp
+    ;;设置选择框
+(setq rime-show-candidate 'minibuffer)
+;;or
+(setq rime-show-candidate 'posframe)
+;;or
+(setq rime-show-candidate 'popup)
+    #+end_src
 
-*** 基础设置
+*** rime基础设置
     #+begin_quote
     #
     #default_custom.yaml
-patch:
-  schema_list:
+    patch:
+    schema_list:
     - schema: double_pinyin_plus
     - schema: luna_pinyin          # 朙月拼音
-  key_binder:
+    key_binder:
     bindings:
-      - {accept: semicolon, send: 2, when: has_menu}
-      - {accept: apostrophe, send: 3, when: has_menu}
-      - {accept: "Control+p", send: Up, when: composing}
-      - {accept: "Control+n", send: Down, when: composing}
-	
-  #double_pinyin_plus.custom.yaml
-  patch:
-  # 扩充词库
-  translator/dictionary: luna_pinyin.extended
+    - {accept: semicolon, send: 2, when: has_menu}
+    - {accept: apostrophe, send: 3, when: has_menu}
+    - {accept: "Control+p", send: Up, when: composing}
+    - {accept: "Control+n", send: Down, when: composing}
 
-  # 扩充符号库
-  punctuator/import_preset: symbols
-  recognizer/patterns/punct: "^/([A-Z|a-z]*|[0-9]|10)$"
+    #double_pinyin_plus.custom.yaml
+    patch:
+    # 扩充词库
+    translator/dictionary: luna_pinyin.extended
 
-  # 自动造句 (阴阳鱼☯️️ 图标)
-  zrm2000/enable_sentence: true
+    # 扩充符号库
+    punctuator/import_preset: symbols
+    recognizer/patterns/punct: "^/([A-Z|a-z]*|[0-9]|10)$"
 
-  # 笔画反查
-  recognizer/patterns/reverse_lookup: "`b[a-z]*'?$"
-  reverse_lookup:
+    # 自动造句 (阴阳鱼☯️️ 图标)
+    zrm2000/enable_sentence: true
+
+    # 笔画反查
+    recognizer/patterns/reverse_lookup: "`b[a-z]*'?$"
+    reverse_lookup:
     dictionary: stroke
     enable_completion: true
     prefix: "`b"
     suffix: "'"
     tips: 〔笔划反查〕
     preedit_format:
-      - xlit/hspnz/一丨丿丶乙/
+    - xlit/hspnz/一丨丿丶乙/
     comment_format:
-      - xform/([nl])v/$1ü/
+    - xform/([nl])v/$1ü/
     #+end_quote

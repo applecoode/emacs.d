@@ -82,7 +82,6 @@ sx 3 sx 3
 *** eww浏览网站
  - eww-back-url 上一个网站
    
-
 ** 安装插件
 *** swiper
     #+begin_src elisp
@@ -101,6 +100,8 @@ sx 3 sx 3
 pacman -S mingw-w64-i686-ag # 32 位电脑
 pacman -S mingw-w64-x86_64-ag # 64 位电脑
 
+*** yasnappit
+ 里面并没有snappit需要安装yasnappit-snappits
 ** org-mode
 *** c-c c-x b在单独buff中编辑条目
 *** 关于easy templates (c-c c-,)
@@ -139,7 +140,6 @@ pacman -S mingw-w64-x86_64-ag # 64 位电脑
 (setq org-modules-loaded t)
     #+end_src
 
-
 ** 视觉效果
 *** 全屏
 #+begin_src elisp
@@ -147,3 +147,7 @@ pacman -S mingw-w64-x86_64-ag # 64 位电脑
 ;;(toggle-frame-fullscreen &optional FRAME)
 #+end_src
 
+*** 调整字体
+#+begin_src elisp
+  (text-scale-adjust);;C-x C-0
+#+end_src

@@ -65,7 +65,8 @@
 ;;rime
 (require 'rime)
 (setq default-input-method "rime")
-
+;;select style define
+(setq rime-show-candidate 'posframe)
 
 (global-hungry-delete-mode)
 

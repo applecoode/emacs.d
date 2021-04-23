@@ -21,7 +21,7 @@
 (menu-bar-mode -1)
 
 ;;full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+;(setq initial-frame-alist (quote ((fullscreen . maximized))))
 ;(toggle-frame-fullscreen)
 
 ;;(load-theme 'monokai)
